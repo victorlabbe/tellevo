@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>    
+      <div class="tla">
+        <img src="assets/img/bienvenidos.PNG" alt="">
+      </div>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-item>
+  <div class="saludo">
+    <img src="assets/img/tla.PNG"/>
+  </div>
+
+  <div clas="auto">
+    <img src="assets/img/auto1.PNG"/>
+  </div>
+  <ion-label position="floating">Ingresa Usuario</ion-label>
+    <ion-input  type="email" placeholder="Ingrese su email"  [(ngModel)]="email" name="email"></ion-input>
+    <ion-label position="floating">Ingresa contraseña</ion-label>
+    <ion-input  type="password" placeholder="Ingrese su password" [(ngModel)]="password" name="password"></ion-input>
+    
+
+</ion-item>
+
+  <ion-button expand="block" (click)="loginEmail()">Ingresar</ion-button>
+
+
+      
+<!--  
+  <h6>Lista de usuario</h6>
+<ul>
+  <li *ngFor="let user of listaDeUsuarios" (click)="eliminar(user.id)"> {{user | json}}</li>
+</ul>
+-->
+  
+<div class="ion-text-center">
+  <ion-router-link class="rest" (click)="recuperar()">Restablecer Contraseña</ion-router-link >
+</div>
+<br>
+
+
+</ion-content>

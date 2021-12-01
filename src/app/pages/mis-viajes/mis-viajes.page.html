@@ -1,0 +1,43 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>          
+      <img src="assets/img/tla.PNG" alt="">
+    </ion-title>     
+ <ion-button color="light" aria-expanded="true" shape="round" (click)="volver()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+</ion-toolbar>  
+</ion-header>
+
+<ion-content>
+  <div class="text-alain-center">
+    <H5>Mis Viajes</H5>
+  </div>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+
+    <ion-card>
+       <ion-list *ngFor="let location of locations">
+      <ion-item-sliding>
+        <ion-item [routerLink]="['/location', location.id ]">{{location.name}}</ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color ="danger" (click)="deleteLocation(location.id)">Eliminar
+            <ion-icon name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>   
+      </ion-item-sliding>
+    
+    </ion-list>
+    </ion-card>   
+   
+  
+    
+</ion-content>

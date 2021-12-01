@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>          
+      <img src="assets/img/tla.PNG" alt="">
+    </ion-title> 
+      
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>  
+
+      <ion-button color="dark" slot="end" expand="block" (click)="logOut()">
+      <ion-icon  name="power-outline"></ion-icon>
+      </ion-button>    
+</ion-toolbar>  
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-text-center">
+    <h4>Seleccione Ruta</h4>
+    <ion-select placeholder="Selecione su ruta" [(ngModel)]="user">
+      <ion-select-option *ngFor="let c of users" [value]="c">{{c.ruta}}</ion-select-option>
+    </ion-select>
+  </ion-card>
+
+  <ion-card class="ion-text-center">
+    <h4>Conductores Disponibles</h4>
+    <ion-select placeholder="Selecione un Conductor" [(ngModel)]="user">
+      <ion-select-option *ngFor="let c of users" [value]="c">{{c.name}}</ion-select-option>
+    </ion-select>
+  </ion-card>
+</ion-content>

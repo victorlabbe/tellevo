@@ -1,0 +1,56 @@
+{
+  "name":  [
+    {
+      "name": "Sebastian Quezada",
+      "rut": "17565238-3",
+      "abbreviation": "SQ",
+      "licencia": "B",
+      "ruta": "Isla de pascua, numero: 210 ",
+      "vehiculo": [
+        { "Modelo": "Kia rio 2016" },
+        { "Patente": "kdmw-56"},        
+        { "Color": "Rojo"}
+      ]
+    },
+    {
+      "name": "Martin Vera",
+      "rut": "19345678-6",
+      "abbreviation": "MV",
+      "licencia": "B",
+      "ruta": "calle benito camela, numero: 69 ",
+      "vehiculo": [
+        { "Modelo": "Chevrolet Sail 2015" },
+        { "Patente": "mvcd-69"},        
+        { "Color": "Gris"}
+      ]
+      
+    },
+    {
+      "name": "Victor Labbe",
+      "rut": "16664977-3",
+      "abbreviation": "Vl",
+      "licencia": "B",
+      "ruta": "Santa Maria, numero: 240 ",
+      "vehiculo": [
+        { "Modelo": "Suzuli alto 2019" },
+        { "Patente": "bxcf-76"},        
+        { "Color": "baig"}
+      ]
+    },
+    {
+      "name": "Juan Silva",
+      "rut": "8989238-6",
+      "abbreviation": "JS",
+      "licencia": "B",
+      "ruta": "Santiago  Dias",
+      "vehiculo": [
+        { "Modelo": "Toyota corolla 2020" },
+        { "Patente": "jdls-60"},        
+        { "Color": "Negro"}
+      ]
+    }
+  
+    
+    
+  ]
+}
