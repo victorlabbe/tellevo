@@ -1,0 +1,28 @@
+<ion-content>
+  <h6 class="centrar">Informacion de alumnos</h6>
+  <ion-item>
+    
+    <ion-select placeholder="Seleccione alumno" okText="ok" [(ngModel)]="sedes" (ionChange)="getSede()">
+      <ion-select-option *ngFor="let ori of sede" [value]="ori">
+        {{ori.nombreSede}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-list ngFor="let via of sede">
+    <ion-card>
+      <ion-card-subtitle class="ion-text-center">Nombre alumno: {{Tiempo}} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Rut: {{origen} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Edad : {{Destino}} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Correo : {{km}} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Carrera: {{costo}} </ion-card-subtitle>
+      
+    </ion-card>
+  </ion-list>
+
+  
+
+<ion-card>
+
+</ion-card>
+<ion-button  expand="block" shape="round"> volver</ion-button>
+</ion-content>

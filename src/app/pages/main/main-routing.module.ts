@@ -1,5 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ComponenteCincoComponent } from 'src/app/components/componente-cinco/componente-cinco.component';
+import { ComponenteCuatroComponent } from 'src/app/components/componente-cuatro/componente-cuatro.component';
 import { ComponenteDosComponent } from 'src/app/components/componente-dos/componente-dos.component';
 import { ComponenteTresComponent } from 'src/app/components/componente-tres/componente-tres.component';
 import { ComponenteUnoComponent } from 'src/app/components/componente-uno/componente-uno.component';
@@ -24,7 +26,7 @@ const routes: Routes = [
       path: 'tres',
       component: ComponenteTresComponent
     }
-      
+     
   ]
   }
 ];

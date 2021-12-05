@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>          
+      <img src="assets/img/tla.PNG" alt="">
+    </ion-title> 
+      
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>  
+
+      <ion-button color="dark" slot="end" expand="block" (click)="logOut()">
+      <ion-icon  name="power-outline"></ion-icon>
+      </ion-button>    
+</ion-toolbar>  
+</ion-header>
+
+<ion-content>
+<h6 class="centrar">Informacion del viaje creado</h6>
+
+<ion-card>
+  <ion-card-subtitle class="ion-text-center">Tiempo viaje: {{Tiempo}} </ion-card-subtitle>
+  <ion-card-subtitle class="ion-text-center">Lugar origen: {{origen} </ion-card-subtitle>
+  <ion-card-subtitle class="ion-text-center">Lugar Destino: {{Destino}} </ion-card-subtitle>
+  <ion-card-subtitle class="ion-text-center">Distancia: {{km}} </ion-card-subtitle>
+  <ion-card-subtitle class="ion-text-center">Valor Viaje: {{costo}} </ion-card-subtitle>
+  
+</ion-card>
+</ion-content>

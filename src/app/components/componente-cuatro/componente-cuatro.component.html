@@ -1,0 +1,28 @@
+<ion-content>
+  <h6 class="centrar">Lista de viajes creados</h6>
+  <ion-item>
+    
+    <ion-select placeholder="Seleccione Cliente" okText="ok" [(ngModel)]="sedes" (ionChange)="getSede()">
+      <ion-select-option *ngFor="let ori of sede" [value]="ori">
+        {{ori.nombreSede}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-list ngFor="let via of sede">
+    <ion-card>
+      <ion-card-subtitle class="ion-text-center">Tiempo viaje: {{Tiempo}} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Lugar origen: {{origen} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Lugar Destino: {{Destino}} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Distancia: {{km}} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Valor Viaje: {{costo}} </ion-card-subtitle>
+      
+    </ion-card>
+  </ion-list>
+
+  
+
+<ion-card>
+
+</ion-card>
+<ion-button  expand="block" shape="round"> Aceptar viaje</ion-button>
+</ion-content>

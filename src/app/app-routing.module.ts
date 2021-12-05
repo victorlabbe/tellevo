@@ -41,10 +41,18 @@ const routes: Routes = [
     path: 'conductor',
     loadChildren: () => import('./pages/conductor/conductor.module').then( m => m.ConductorPageModule)
   },
+
+{
+    path: 'creado',
+    loadChildren: () => import('./pages/creado/creado.module').then( m => m.CreadoPageModule)
+  },
+
+
   {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
   }
+  
   
 ];
 

@@ -13,10 +13,19 @@ export class ConductorPage implements OnInit {
   constructor(
     private router: Router,
     private auth: DatabaseService
-    ) { }
+    ) {
+      this.router.navigate(['conductor/cuatro'])
+     }
 
   ngOnInit() {
   }
+
+  segmentChanged(event: any){
+    console.log(event)
+    let direccion=event.detail.value
+    this.router.navigate(['conductor/'+direccion])
+  }
+
   volver(){
     this.router.navigate(['/main']);
   }
