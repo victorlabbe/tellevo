@@ -1,0 +1,14 @@
+.centrar{
+    text-align: center;
+}
+
+ion-content{
+    --background:white;
+}
+
+@-webkit-keyframes slide-right{0%{-webkit-transform:translateX(0);transform:translateX(0)}100%{-webkit-transform:translateX(100px);transform:translateX(100px)}}@keyframes slide-right{0%{-webkit-transform:translateX(0);transform:translateX(0)}100%{-webkit-transform:translateX(100px);transform:translateX(100px)}}
+.container{
+    -webkit-animation:slide-right 3s cubic-bezier(.25,.46,.45,.94) infinite both;animation:slide-right 3s cubic-bezier(.25,.46,.45,.94) infinite both}
+    img{
+        margin-top: 10%;
+    }

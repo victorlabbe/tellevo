@@ -14,18 +14,19 @@ export class DatabaseService {
 
   constructor(
 
-      private firestore: AngularFirestore,
+      private firestore2: AngularFirestore,
       private Auth: AngularFireAuth,
       private router: Router,
       
       
    ) { }
 
-   DBcon = this.firestore.collection('conductores');
-   DBvi = this.firestore.collection('viajes');
-   DBvCreado = this.firestore.collection('viajeCreado');
-   DBsede = this.firestore.collection('sede');
-   DBgen = this.firestore.collection('generado')
+   DBcon = this.firestore2.collection('conductores');
+   DBvi = this.firestore2.collection('viajes');
+   DBvCreado = this.firestore2.collection('viajeCreado'); 
+   DBsede = this.firestore2.collection('sede');
+   DBgen = this.firestore2.collection('generado')
+   
 
    loginUserEmail(email: string, password: string) {
       this.Auth.signInWithEmailAndPassword(email, password)
@@ -37,7 +38,7 @@ export class DatabaseService {
     }
   async create(collection, dato){
      try {
-       return await this.firestore.collection(collection).add(dato);
+       return await this.firestore2.collection(collection).add(dato);
      }catch(error){
        console.log("error en: create", error)             
      }     
@@ -46,7 +47,7 @@ export class DatabaseService {
 
   async getAll(colllection){
      try {
-        return await this.firestore.collection(colllection).snapshotChanges();
+        return await this.firestore2.collection(colllection).snapshotChanges();
      } catch(error){
         console.log("error en: getAll ",error)      
      }
@@ -54,7 +55,7 @@ export class DatabaseService {
   }
   async getByID(colllection,id){
     try {
-       return await this.firestore.collection(colllection).doc(id).get();
+       return await this.firestore2.collection(colllection).doc(id).get();
     } catch(error){
        console.log("error en: gerById ",error)      
     }
@@ -62,7 +63,7 @@ export class DatabaseService {
  }
  async delete(colllection, id){
   try {
-     return await this.firestore.collection(colllection).doc(id).delete();
+     return await this.firestore2.collection(colllection).doc(id).delete();
   } catch(error){
      console.log("error en: delete ",error)      
   }
@@ -70,17 +71,20 @@ export class DatabaseService {
 }
 async update(colllection, id, dato){
   try {
-     return await this.firestore.collection(colllection).doc(id).set(dato);
+     return await this.firestore2.collection(colllection).doc(id).set(dato);
   } catch(error){
      console.log("error en: update ",error)      
   }
  
 }
+getAuth() {
+  return this.Auth.authState;
+}
 
 logout(): Promise<any> {
    return this.Auth.signOut();
  }
-
+ 
  llamarConductore() {
    return this.DBcon.snapshotChanges().pipe(
      map((con) =>
@@ -101,6 +105,17 @@ logout(): Promise<any> {
     )
   );
 }
+llamarCreado(){
+  return this.DBvCreado.snapshotChanges().pipe(
+    map((cre)=>
+    cre.map((creados)=>{
+      const viajeCreado = creados.payload.doc.data();
+      return viajeCreado;
+    })
+    )
+  );
+}
+
 llamarGenerado() {
   return this.DBgen.snapshotChanges().pipe(
     map((gen) =>
@@ -125,13 +140,14 @@ llamarGenerado() {
  }
  async getViaje (collection){
   try{
-    return await this.firestore.collection(collection).snapshotChanges();
+    return await this.firestore2.collection(collection).snapshotChanges();
    } catch (error) {
    console.log('error en', error);
    }
 }
 
-crearViaje(nombre: any, 
+crearViaje(
+  nombre: any, 
   rut: any, 
   edad: any, 
   vehiculo: any, 
@@ -144,7 +160,8 @@ crearViaje(nombre: any,
   latSede: any,
   longSede: any,
   km: any,
-  tiempo: any
+  tiempo: any,
+  costo: any
   ){
   this.DBvCreado.add({
   nombre: nombre,
@@ -160,13 +177,13 @@ crearViaje(nombre: any,
   latSede: latSede,
   longSede: longSede,
   km: km,
-  tiempo: tiempo
+  tiempo: tiempo,
+  costo: costo
   }).then(() => {
       console.log('viaje creado');
   }).catch((error) => 
   console.log(error));
   
 }
-
 
 }

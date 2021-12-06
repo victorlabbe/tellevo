@@ -9,9 +9,7 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>  
 
-      <ion-button color="dark" slot="end" expand="block" (click)="logOut()">
-      <ion-icon  name="power-outline"></ion-icon>
-      </ion-button>    
+         
 </ion-toolbar>  
 </ion-header>
 
@@ -38,7 +36,7 @@
   <h5 class="centrar">direccion de Origen</h5>
   <ion-item>
     
-    <ion-select placeholder="Seleccione un distino" okText="ok" [(ngModel)]="sedes" (ionChange)="getSede()">
+    <ion-select placeholder="Seleccione un destino" okText="ok" [(ngModel)]="sedes" (ionChange)="getSede()">
       <ion-select-option *ngFor="let ori of sede" [value]="ori">
         {{ori.nombreSede}}
       </ion-select-option>
@@ -61,8 +59,6 @@
       </ion-select-option>
     </ion-select>
   </ion-item>
-
-
   <ion-list ngFor="let con of conductores">
     <ion-card>
       <ion-card-subtitle class="ion-text-center">Nombre : {{nombre}} </ion-card-subtitle>
@@ -73,7 +69,7 @@
       <ion-card-subtitle class="ion-text-center">Licencia : Clase {{licencia}}</ion-card-subtitle>
     </ion-card>
   </ion-list>
-  <ion-button expand="block" shape="round" (click)="crearViaje()" > Generar viaje</ion-button>
+  <ion-button expand="block" shape="round" (click)="crearViaje()" >Generar viaje</ion-button>
 </ion-content>
 
 

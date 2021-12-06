@@ -20,7 +20,7 @@ export class ComponenteDosComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.map.initMap(43.738419,7.424616, 'map');
+    this.map.initMap(-33.0589456,-71.5352402, 'map');
     
     }
     getCurrentPosition(){

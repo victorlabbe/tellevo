@@ -9,16 +9,8 @@ const routes: Routes = [
   {
     path: '',
     component: ConductorPage,
-    children: [
-      {
-        path: 'cuatro',
-        component: ComponenteCuatroComponent
-      },
-    {
-      path: 'cinco',
-      component: ComponenteCincoComponent
-    }
-    ]
+    
+    
   }
 ];
 

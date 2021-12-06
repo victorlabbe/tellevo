@@ -45,13 +45,17 @@ const routes: Routes = [
 {
     path: 'creado',
     loadChildren: () => import('./pages/creado/creado.module').then( m => m.CreadoPageModule)
+  },{
+    path: 'terminado',
+    loadChildren: () => import('./pages/terminado/terminado.module').then( m => m.TerminadoPageModule)
   },
 
 
   {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
-  }
+  },
+  
   
   
 ];

@@ -14,12 +14,20 @@ export class ConductorPage implements OnInit {
     private router: Router,
     private auth: DatabaseService
     ) {
-      this.router.navigate(['conductor/cuatro'])
+      this.router.navigate(['conductor'])
      }
 
   ngOnInit() {
+    this.llamarCreado();
   }
+  generados = [];
 
+  llamarCreado(){
+    this.auth.llamarCreado().subscribe(cre=>{
+      console.log(this.generados);
+      this.generados = cre;
+    });
+  }
   segmentChanged(event: any){
     console.log(event)
     let direccion=event.detail.value
@@ -33,5 +41,8 @@ export class ConductorPage implements OnInit {
   logOut() {
     this.auth.logout();
     this.router.navigate(['/home']);
+  }
+  irTerminado(){
+    this.router.navigate(['/terminado']);
   }
 }

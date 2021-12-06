@@ -9,6 +9,8 @@ import { DatabaseService } from 'src/app/services/database.service';
   styleUrls: ['./main.page.scss'],
 })
 export class MainPage implements OnInit {
+  usuarios: string;
+  
 
   constructor(
     private router: Router,
@@ -19,7 +21,15 @@ export class MainPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getUsuario();
   }
+  getUsuario() {
+    this.auth.getAuth().subscribe((usuario) => {
+      this.usuarios = usuario.email;
+    });
+  }
+
+  
 
   segmentChanged(event: any){
     console.log(event)
@@ -37,4 +47,6 @@ export class MainPage implements OnInit {
   modoConductor(){
     this.router.navigate(['/conductor'] )
   }
+
+  
 }

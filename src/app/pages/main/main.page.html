@@ -5,17 +5,24 @@
       <img src="assets/img/tla.PNG" alt="">
     </ion-title> 
       
+    
+
     <ion-button color="secondary" slot="start" expand="block" (click)="modoConductor()" >
       <ion-icon name="speedometer-outline"></ion-icon>
       </ion-button>
-    
+      
 
       <ion-button color="dark" slot="end" expand="block" (click)="logOut()">
       <ion-icon  name="power-outline"></ion-icon>
       </ion-button>
-    
+      
+      
 </ion-toolbar>
+<ion-item>
+  <h6 class="centrar">Bienvenido: {{usuarios}}</h6>
+</ion-item>
   <ion-toolbar>
+    
   <ion-segment (ionChange)="segmentChanged($event)">
      
    <ion-segment-button value="dos">

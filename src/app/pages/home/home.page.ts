@@ -9,11 +9,13 @@ import { DatabaseService } from '../../services/database.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit{
-
+  
   usuario = {
     email: "",
-    password: ""
+    password: "",
+    
   }
+  
   public email: string;
   public password: string;
   listaDeUsuarios = [];

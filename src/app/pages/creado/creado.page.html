@@ -8,21 +8,24 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>  
 
-      <ion-button color="dark" slot="end" expand="block" (click)="logOut()">
-      <ion-icon  name="power-outline"></ion-icon>
-      </ion-button>    
+        
 </ion-toolbar>  
 </ion-header>
 
 <ion-content>
 <h6 class="centrar">Informacion del viaje creado</h6>
 
-<ion-card>
-  <ion-card-subtitle class="ion-text-center">Tiempo viaje: {{Tiempo}} </ion-card-subtitle>
-  <ion-card-subtitle class="ion-text-center">Lugar origen: {{origen} </ion-card-subtitle>
-  <ion-card-subtitle class="ion-text-center">Lugar Destino: {{Destino}} </ion-card-subtitle>
-  <ion-card-subtitle class="ion-text-center">Distancia: {{km}} </ion-card-subtitle>
-  <ion-card-subtitle class="ion-text-center">Valor Viaje: {{costo}} </ion-card-subtitle>
-  
-</ion-card>
+
+<ion-list *ngFor="let gen of generados">
+  <ion-card>
+    <ion-card-subtitle class="ion-text-center">Tiempo viaje: {{gen.tiempo}} </ion-card-subtitle>
+  <ion-card-subtitle class="ion-text-center">Lugar origen: {{gen.nombreSede}} </ion-card-subtitle>
+  <ion-card-subtitle class="ion-text-center">Lugar destino: {{gen.direccion}} </ion-card-subtitle>
+  <ion-card-subtitle class="ion-text-center">Distancia: {{gen.km}} </ion-card-subtitle>
+  <ion-card-subtitle class="ion-text-center">Valor Viaje: {{gen.costo}} </ion-card-subtitle>
+    
+  </ion-card>
+</ion-list>
+<ion-button expand="full" shape="round" (click)="irMain()" >Confirmar Viaje</ion-button>
+
 </ion-content>

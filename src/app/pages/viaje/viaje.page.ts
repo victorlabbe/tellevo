@@ -58,6 +58,7 @@ export class ViajePage implements OnInit {
     this.llamarViajes();
     this.llamarSede();
     
+    
 
   }
   llamarViajes(){
@@ -67,6 +68,14 @@ export class ViajePage implements OnInit {
 
     })
   }
+  llamarCreado(){
+    this.database.llamarViajes().subscribe(via=>{
+      console.log(this.viajes);
+      this.viajes = via;
+
+    })
+  }
+
   llamarSede(){
     this.database.llamarSede().subscribe(ori=>{
       console.log(this.sede);
@@ -74,7 +83,7 @@ export class ViajePage implements OnInit {
 
     })
   }
-
+  
 
   llamarConductor() {
     this.database.llamarConductore().subscribe(con=>{
@@ -129,7 +138,9 @@ export class ViajePage implements OnInit {
       });
       });
   }
-  
+  getCreado(){
+
+  }
   crearViaje(){
     
     this.calcularDistanciaTiempo();
@@ -148,10 +159,10 @@ export class ViajePage implements OnInit {
         this.latSede,
         this.longSede,
         this.km,
-        this.tiempo
+        this.tiempo,
+        this.costo
     )
     
-
     this.router.navigate(['creado']);
 }
 eliminar(id) {
