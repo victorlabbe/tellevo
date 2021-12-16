@@ -1,75 +1,32 @@
-
 <ion-header>
   <ion-toolbar>
-    <ion-title>          
+    <ion-title>
       <img src="assets/img/tla.PNG" alt="">
-    </ion-title> 
-      
+    </ion-title>
+
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
-    </ion-buttons>  
+    </ion-buttons>
 
-         
-</ion-toolbar>  
+
+  </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-<h5 class="centrar">direccion de Destino</h5>
-  <ion-item>
-    
-    <ion-select placeholder="Seleccione un viaje" okText="ok" [(ngModel)]="viaje" (ionChange)="getViajes()">
-      <ion-select-option *ngFor="let via of viajes" [value]="via">
-        {{via.nombre}}
-      </ion-select-option>
-    </ion-select>
-    
-  </ion-item>
-  <ion-list ngFor="let via of viajes">
-    <ion-card>
-      <ion-card-subtitle class="ion-text-center">Nombre : {{direccion}} </ion-card-subtitle>
-      <ion-card-subtitle class="ion-text-center">Latitud : {{latitud}} </ion-card-subtitle>
-      <ion-card-subtitle class="ion-text-center">Longitud : {{longitud}}  </ion-card-subtitle>
-      
-    </ion-card>
-  </ion-list>
-  <h5 class="centrar">direccion de Origen</h5>
-  <ion-item>
-    
-    <ion-select placeholder="Seleccione un destino" okText="ok" [(ngModel)]="sedes" (ionChange)="getSede()">
-      <ion-select-option *ngFor="let ori of sede" [value]="ori">
-        {{ori.nombreSede}}
-      </ion-select-option>
-    </ion-select>
-  </ion-item>
-  <ion-list ngFor="let via of sede">
-    <ion-card>
-      <ion-card-subtitle class="ion-text-center">Nombre : {{nombreSede}} </ion-card-subtitle>
-      <ion-card-subtitle class="ion-text-center">Latitud : {{latSede}} </ion-card-subtitle>
-      <ion-card-subtitle class="ion-text-center">Longitud : {{longSede}}  </ion-card-subtitle>
-      
-    </ion-card>
-  </ion-list>
+  <h6 class="centrar">Informacion del viaje creado</h6>
 
-  <h5 class="centrar">Eliga conductor</h5>
-  <ion-item>
-    <ion-select placeholder="Seleccione un conductor" okText="ok" [(ngModel)]="conductor" (ionChange)="getConductor()">
-      <ion-select-option *ngFor="let con of conductores" [value]="con">
-        {{con.nombre}}
-      </ion-select-option>
-    </ion-select>
-  </ion-item>
-  <ion-list ngFor="let con of conductores">
+
+
+  <ion-list *ngFor="let gen of generados">
     <ion-card>
-      <ion-card-subtitle class="ion-text-center">Nombre : {{nombre}} </ion-card-subtitle>
-      <ion-card-subtitle class="ion-text-center">Rut : {{rut}} </ion-card-subtitle>
-      <ion-card-subtitle class="ion-text-center">Edad : {{edad}} años </ion-card-subtitle>
-      <ion-card-subtitle class="ion-text-center">Vehiculo : {{vehiculo}} </ion-card-subtitle>
-      <ion-card-subtitle class="ion-text-center">Patente : {{patente}} </ion-card-subtitle>
-      <ion-card-subtitle class="ion-text-center">Licencia : Clase {{licencia}}</ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Tiempo viaje: {{gen.tiempo}} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Lugar origen: {{gen.nombreSede}} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Lugar destino: {{gen.direccion}} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Distancia: {{gen.km}} </ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Valor Viaje: {{gen.costo}} </ion-card-subtitle>
+
     </ion-card>
   </ion-list>
-  <ion-button expand="block" shape="round" (click)="crearViaje()" >Generar viaje</ion-button>
+  <ion-button expand="full" shape="round" (click)="irTerminado()">Confirmar Viaje</ion-button>
+
 </ion-content>
-
-

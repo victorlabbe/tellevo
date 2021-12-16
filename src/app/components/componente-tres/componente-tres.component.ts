@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Router } from '@angular/router'
-import { APIClientService } from 'src/app/services/apiclient.service'
+import { Router } from '@angular/router';
 import { DatabaseService } from 'src/app/services/database.service';
-
 
 @Component({
   selector: 'app-componente-tres',
@@ -11,20 +8,19 @@ import { DatabaseService } from 'src/app/services/database.service';
   styleUrls: ['./componente-tres.component.scss'],
 })
 export class ComponenteTresComponent implements OnInit {
-  
   conductores = [];
-  conductor:any;  
-  user:any;
-   users:any = [];
-   posts:any;
-   post:any={
-    id:null, 
-    nombre:"",
-    rut:"",
-    licencia:"",
-    ruta: "",
-    userId:""
-   };
+  conductor: any;
+  user: any;
+  users: any = [];
+  posts: any;
+  post: any = {
+    id: null,
+    nombre: '',
+    rut: '',
+    licencia: '',
+    ruta: '',
+    userId: '',
+  };
   nombre: any;
   rut: any;
   edad: any;
@@ -32,35 +28,20 @@ export class ComponenteTresComponent implements OnInit {
   patente: any;
   licencia: any;
 
-  constructor(
-    private router:Router,
-    private api: APIClientService,
-    private database: DatabaseService
-    ) { }
-    
+  constructor(private router: Router, private database: DatabaseService) {}
+
   ngOnInit() {
-    this.getUsuarios();
     this.llamarConductor();
   }
 
   llamarConductor() {
-    this.database.llamarConductore().subscribe(con=>{
+    this.database.llamarConductore().subscribe((con) => {
       console.log(this.conductores);
       this.conductores = con;
     });
   }
-  ionViewWillEnter(){
-    this.getUsuarios();
-   }
-   getUsuarios() {
-    this.api.getUsuarios().subscribe((data) => {
-      console.log(data);
-      this.users = data;
-    });
-
-    
-  }
-  getMostrar(){}
+  ionViewWillEnter() {}
+  getMostrar() {}
 
   getConductor() {
     console.log(this.conductor);
@@ -71,5 +52,4 @@ export class ComponenteTresComponent implements OnInit {
     this.patente = this.conductor.patente;
     this.licencia = this.conductor.licencia;
   }
-
 }
